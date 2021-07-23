@@ -5,3 +5,17 @@
   roles:
   - worker
 
+- hosts: master
+  tasks:
+  - name: "-----copying scripting file for admin.conf----"  
+    copy:
+      src: "./script.sh"
+      dest: "./"
+
+  - name: "----running script----"
+    command: "bash script.sh"
+
+  - debug:
+          msg: "*******successfully copy admin.conf file*******"
+
+
